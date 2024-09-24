@@ -21,7 +21,7 @@ Video player app inspired by youtube , our app has 6 activities
 6) Profile page
 
 **set up:**
-* Make sure you have MongoDB installed on your computer - this project is linked to it using the web server in this link: https://github.com/Toms752384/Youtube-web-server.git
+* Make sure you have MongoDB installed on your computer - this project is linked to it using the web server in this link: https://github.com/AlonLivne007/Youtube-web-server.git
 * Follow the instructions in the provided link and activate the server before proceeding.
 * You are provided with 3 default users with the developers names and 20 videos for you to enjoy.
   
