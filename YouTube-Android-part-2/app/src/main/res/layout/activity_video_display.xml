@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/android:colorBackground"
+    tools:context=".view.ui.VideoDisplayActivity">
+    <!-- Include the header layout -->
+
+    <!-- Video view for playing the video -->
+    <VideoView
+        android:id="@+id/vvVideo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Control buttons -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clControl"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:padding="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/vvVideo"
+        app:layout_constraintEnd_toEndOf="@id/vvVideo"
+        app:layout_constraintStart_toStartOf="@id/vvVideo"
+        app:layout_constraintTop_toTopOf="@+id/vvVideo">
+
+        <ImageButton
+            android:id="@+id/btnRewind"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/rewind"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_backward" />
+
+        <ImageButton
+            android:id="@+id/btnPlayPause"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/pause_play"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnForward"
+            app:layout_constraintStart_toEndOf="@+id/btnRewind"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pause_button_selector" />
+
+        <ImageButton
+            android:id="@+id/btnForward"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/forward"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_forward" />
+
+        <ImageButton
+            android:id="@+id/btnFullscreen"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/fullscreen"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_fullscreen" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Title of the video -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/title_video"
+        android:textColor="?attr/colorOnBackground"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_like"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vvVideo" />
+
+    <!-- Description of the video -->
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:padding="8dp"
+        android:text="@string/description_video"
+        android:textColor="?attr/colorOnBackground"
+        app:layout_constraintBottom_toTopOf="@+id/llButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_like"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:text="@string/likes"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+        app:layout_constraintEnd_toStartOf="@+id/tv_view"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_profile_pic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/profile"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_pic"
+        app:layout_constraintBottom_toTopOf="@+id/tvDescription"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerFamily.Circular" />
+
+
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/author"
+        app:layout_constraintBottom_toTopOf="@+id/tvDescription"
+        app:layout_constraintStart_toEndOf="@+id/siv_profile_pic"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tv_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:text="@string/views"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+
+    <LinearLayout
+        android:id="@+id/llButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription">
+
+        <ImageView
+            android:id="@+id/iv_like"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/like_button_desc"
+            android:focusable="true"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/like_button_selector" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/share"
+            android:focusable="true"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_share" />
+    </LinearLayout>
+
+    <!-- RecyclerView for displaying comments -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvComments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentLayout" />
+
+    <!-- Layout for comment input and post button -->
+    <LinearLayout
+        android:id="@+id/commentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llButtons">
+
+        <!-- Input field for adding a new comment -->
+        <EditText
+            android:id="@+id/et_CommentInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/editTextBackground"
+            android:hint="@string/add_a_comment"
+            android:minHeight="48dp"
+            android:singleLine="true"
+            android:textColor="?attr/colorOnBackground"
+            android:textColorHint="?attr/colorOnBackground" />
+
+        <!-- Button to post a new comment -->
+        <ImageView
+            android:id="@+id/iv_post"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/post"
+            android:focusable="true"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_post" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
