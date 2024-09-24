@@ -11,8 +11,6 @@
     <br/>    <br/> 
 </h2>
 <br/>
-
-# Project-YouTube-Android
 **Description:**
 Video player app inspired by youtube , our app has 6 activities
 1) registration page
